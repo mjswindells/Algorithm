@@ -28,14 +28,11 @@ void FindAns(string &word,int order,int idx,int x,int y){
         }
     }
 }
-//check, word, board를 초기화
+//check, word
 void init(){
     for(int i=0;i<10;i++) {
         check[i]="NO";
         word[i]="";
-    }
-    for(int i=0;i<7;i++){
-        for(int j=0;j<7;j++) board[i][j]='0';
     }
 }
 int main(){
