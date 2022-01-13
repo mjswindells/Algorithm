@@ -58,6 +58,7 @@ int main(){
                     if(check[k]=="YES") break;
                     if(word[k][0]==board[i][j])
                         FindAns(word[k],k,0,i,j);
+                //불필요한 반복 없애기 위해
                 }if(check[k]=="YES") break;
             }
         }
