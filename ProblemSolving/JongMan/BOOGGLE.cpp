@@ -54,9 +54,11 @@ int main(){
         for (int k = 0; k < N; k++) {
             for (int i = 1; i < 6; i++) {
                 for (int j = 1; j < 6; j++) {
+                    //불필요한 반복 없애기 위해
+                    if(check[k]=="YES") break;
                     if(word[k][0]==board[i][j])
                         FindAns(word[k],k,0,i,j);
-                }
+                }if(check[k]=="YES") break;
             }
         }
         for(int i=0;i<N;i++) cout<<word[i]<<" "<<check[i]<<endl;
