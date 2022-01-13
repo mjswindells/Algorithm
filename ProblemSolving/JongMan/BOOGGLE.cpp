@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 //https://algospot.com/judge/problem/read/BOGGLE
