@@ -28,7 +28,7 @@ void FindAns(string &word,int order,int idx,int x,int y){
         }
     }
 }
-//check, word
+//check, word 초기화
 void init(){
     for(int i=0;i<10;i++) {
         check[i]="NO";
