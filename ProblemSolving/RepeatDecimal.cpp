@@ -17,7 +17,7 @@ int findMot(int zero,int nine){
 }
 int main(){
     string str;
-    while(!(cin>>str).eof()){
+    while(cin>>str){
         int zero,nine,son,mot;
         string all="";
         string mi="";
@@ -49,6 +49,5 @@ int main(){
         cout<<str<<" = "<<son<<" / "<<mot<<endl;
         continue;
     }
-
     return 0;
 }
