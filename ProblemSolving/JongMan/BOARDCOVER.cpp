@@ -2,9 +2,12 @@
 
 using namespace std;
 
+//board의 크기를 20x20보다 2칸 더 늘려서 설정한다
+//재귀도중 idx가 넘어갔을 경우 따로 처리를 하지 않기 위해
 bool board[22][22];
-const int nx[4][2]={{1,0},{1,1},{0,-1},{0,1}};
-const int ny[4][2]={{0,1},{0,1},{1,1},{1,1}};
+//(x,y)기준으로 그 전 idx들은 false이므로 앞으로 올것만 생각. 4가지 경우가 있다.
+const int nx[4][2]={{1,0},{1,1},{1,1},{0,1}};
+const int ny[4][2]={{0,1},{0,1},{0,-1},{1,1}};
 
 void init(){
     for(int i=0;i<22;i++){
@@ -19,8 +22,9 @@ int count(int height,int width){
         }
         if(x!=-1) break;
     }
+    //기저사례 : 모두 false(black)인 경우
     if(x==-1) return 1;
-    
+   
     int ans=0;
     int moveX[2],moveY[2];
     for(int i=0;i<4;i++){
@@ -50,7 +54,7 @@ int main(){
                 }
             }
         }
-        if(white%3!=0) cout<<0<<endl;
+        if(white%3) cout<<0<<endl;
         else cout<<count(h,w)<<endl;
     }
 }
