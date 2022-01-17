@@ -1,6 +1,12 @@
 #include <iostream>
 
 using namespace std;
+//https://algospot.com/judge/problem/read/BOARDCOVER
+//BOARDCOVER
+//최악의 경우
+//한 블록에서 놓을 수 있는 경우의 수 : 4
+//최대 50/3=16개의 블록을 놓을 수 있으므로
+//4^16==2^32의 계산을 해야겠지만 실제로는 더 적은 경우로 계산이 끝난다.
 
 //board의 크기를 20x20보다 2칸 더 늘려서 설정한다
 //재귀도중 idx가 넘어갔을 경우 따로 처리를 하지 않기 위해

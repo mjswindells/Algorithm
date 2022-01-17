@@ -5,6 +5,10 @@ using namespace std;
 
 //https://algospot.com/judge/problem/read/CLOCKSYNC
 //최소값 설정을 위해 INF를 큰 값으로 설정
+//시간복잡도 : O(1) 4^10
+//한 버튼당 누를 수 있는 경우 : 4 (0,1,2,3)
+//총 버튼의 수 :10  
+
 #define INF 987654321
 //각각의 스위치 const로 설정
 const vector<int> timeChain[10]={

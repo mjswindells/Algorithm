@@ -4,6 +4,10 @@ using namespace std;
 
 //https://algospot.com/judge/problem/read/PICNIC
 //PICNIC
+//최악의 경우 10C2 * 8C2 * 6C2 * 4C2 * 2C2 /5! =945
+//학생수가 10명이고 모든 학생이 짝지어질때까지 2명씩
+//조합을 선택. 5!으로 나누는 이유는 조합 덩어리들의 순서 중복을 제거
+//ex) (0,1) 이나 (1,0)이 같으므로
 
 //board 친구인지 판별하는 배열
 bool board[10][10];

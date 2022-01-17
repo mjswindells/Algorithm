@@ -3,7 +3,9 @@
 using namespace std;
 
 //https://algospot.com/judge/problem/read/BOGGLE
-//보글게임
+//보글게임 
+//한 문자열의 길이가 N 이라 하면 
+//board에서 인접한 8칸을 모두 조사해야하므로 O(8^N)
 
 //상하좌우 대각선으로 이동해보기 위한 배열
 const int nx[8]={1,1,0,-1,-1,-1,0,1};
