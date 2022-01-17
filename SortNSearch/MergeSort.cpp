@@ -3,6 +3,10 @@
 
 using namespace std;
 
+//O(nlgn)
+//lgn의 의미 : MergeSort가 호출되는 값(깊이). 반으로 계속 나누면 진행하므로 logn
+//n의 의미 : 병합을 하는 과정에서 비교를 통해 새로운 버퍼에 넣는다.
+//			이때 원래의 버퍼크기만큼 비교를 하므로 총 n번 시행한다.
 //병합과정  (vector,시작idx,끝idx)
 void merge(vector<int>& arr, int left, int right) {
     //copy vector
