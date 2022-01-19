@@ -13,6 +13,20 @@ using namespace std;
 //처음 생각했을때 ans[i]=(ans[i-2]*2+ans[i-1])로 2칸전에것은 2배를 해야하나
 //생각했지만 사실 겹치므로 그냥 피보나치와 같은 알고리즘으로 구할 수 있다.
 
+// 사실상 이 문제의 핵심은 이렇게 풀어야한다.
+// const int MOD = 1000000007;
+// int cache[100 + 1];
+// int N;
+// int tiling(int n) {
+//     if (n <= 1)
+//         return 1;
+//     int &ret = cache[n];
+//     if (ret != -1)
+//         return ret;
+//     return ret = ((tiling(n - 1) + tiling(n - 2)) % MOD);
+// }
+
+
 int ans[101];
 void FindAns(){
     ans[1]=1;
