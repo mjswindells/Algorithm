@@ -14,7 +14,7 @@ int d[MAX][11];
 int A[MAX], pSum[MAX], pSqSum[MAX];
 int n, s;
 
-//배여을 정렬, psum과 psqsum을 구하는 과정
+//배열을 정렬, psum과 psqsum을 구하는 과정
 void precalc(){
     sort(A,A+n);
     pSum[0] = A[0];
@@ -32,7 +32,6 @@ void precalc(){
 // m = ∑v[i]/(b-a+1)
 int minError(int lo, int hi){
     //구간의 합을 구한다.
-    //psum과 psqsum의 0번째 값은 0으로 설정했기때문.
     int sum = pSum[hi] - (lo == 0 ? 0 : pSum[lo-1]);
     int sqSum = pSqSum[hi] - (lo == 0 ? 0 : pSqSum[lo-1]);
     //구간합과 구간의 길이를 나눈 값으로 해당 구간의 양자값을 구한다.
