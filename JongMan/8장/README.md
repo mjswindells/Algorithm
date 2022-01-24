@@ -12,9 +12,7 @@
 int Fi(int num)
 {
 
-   if(num == 1)
-      return 1;
-   else if( num ==2 )
+   if(num==1||num==2)
       return 1;
    else
       return Fi(num-1)+Fi(num-2);
