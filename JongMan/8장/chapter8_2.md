@@ -24,7 +24,7 @@ int minError(int lo, int hi){
 // quantize의 값은 결국 minError의 값으로 결정이 되므로 
 // 기저사례의 값을 0또는 INF값으로 설정한다.
 // from번째 이후 숫자들을 parts개의 묶음으로 묶는다
-//O(n^2s) 부분문제의 수 ns 각각의 계산 n
+//O(n^2s) 부분문제의 수 ns(nXs의 테이블만 채우면 된다) 각각의 계산 n
 int quantize(int from, int parts){
     //모든 숫자를 양자화했을 때
     if(from == n) return 0;
@@ -154,9 +154,42 @@ void symmetry(){
 #
 # 폴리노미오
 1. 정사각형의 수가 4일때 어떻게 19가 나온거지? (ㅡ과ㅣ를 다른 경우로 체크한다.대칭과 회전을 고려하지 않는다)
-2. DFS로 풀 수 있을까? x (좌표로 생각해서는 시간안에 풀지도 못하고 예외처리할 부분이 많다)
+2. 일반적인 DFS로 풀 수 있을까? x (좌표로 생각해서는 시간안에 풀지도 못하고 예외처리할 부분이 많다)
 ![양자화비미분](https://user-images.githubusercontent.com/91093119/150958444-02424160-266d-41fe-9e85-c4697fa9375c.png)
 - first + second -1 개의 경우를 가진다(2+3-1=4가지 경우)
+- Main에서 poly가 호출되는 수
+- n과 first의 조합가능수 O(n^2) : cache의 nXn부분만 채우면 된다
 ```cpp
-
+int cache[101][101];
+// n 개의 정사각형으로 이루어졌고, 맨 위 가로줄에 first개의
+// 정사각형을 포함하는 폴리오미노의 수를 반환한다.
+int poly(int n, int first) {
+// 기저 사례 : n == first
+	if(n == first) return 1;
+// 메모이제이션
+	int& ret = cache[n][first];
+	if (ret != -1) return ret;
+	ret = 0;
+	for (int second = 1; second <= n - first; ++second) {
+		int add = second + first - 1;
+		add *= poly(n - first, second);
+		add %= MOD;
+		ret += add;
+		ret %= MOD;
+	}
+	return ret;
+}
 ```
+```cpp
+for (int i = 1; i <= n; ++i) {
+    ans += poly(n, i);
+    ans %= MOD;
+}
+```
+#
+# 두니발 박사의 탈옥
+- ????? 그래프같은데 감이 안잡히네
+- 가중치가 주어진것도 아니라 다익스트라알고리즘도 아니다
+- 경험의 부족인것같다
+- 
+#
