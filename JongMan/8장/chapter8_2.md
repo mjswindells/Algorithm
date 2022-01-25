@@ -194,6 +194,7 @@ for (int i = 1; i <= n; ++i) {
 - 가중치가 주어진것도 아니라 다익스트라알고리즘도 아니다
 - 경험의 부족인것같다
 - 마르코프연쇄를 이용한 풀이
+- https://www.puzzledata.com/blog190423/
 - 시간적으로 더 오래걸리지만 이해하는데 있어서는 더 쉬웠다
 ```cpp
 #define matrix vector<vector<double>> 
