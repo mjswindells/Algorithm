@@ -1,5 +1,6 @@
 동적계획법 (Dynamic Programming)
 ==============================
+- JLIS,PI 미완
 (Dynamic Programming = DP라 칭함)
 
 분할정복과 공통점은 큰 문제를 작은문제로 나누어 푸는것이다.
