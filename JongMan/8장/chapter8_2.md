@@ -159,7 +159,7 @@ void symmetry(){
 2. 일반적인 DFS로 풀 수 있을까? x (좌표로 생각해서는 시간안에 풀지도 못하고 예외처리할 부분이 많다)
 ![양자화비미분](https://user-images.githubusercontent.com/91093119/150958444-02424160-266d-41fe-9e85-c4697fa9375c.png)
 - first + second -1 개의 경우를 가진다(2+3-1=4가지 경우)
-- Main에서 poly가 호출되는 수
+- Main에서 poly가 호출되는 수 O(n)
 - n과 first의 조합가능수 O(n^2) : cache의 nXn부분만 채우면 된다
 ```cpp
 int cache[101][101];
