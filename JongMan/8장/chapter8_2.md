@@ -4,7 +4,7 @@
 2. 한 구간에서의 분산 (평균의 반올림한 값으로 구한)
 3. 구간의 분할(?)
 
-![양자화비미분](https://user-images.githubusercontent.com/91093119/150834879-88f005eb-59a7-417e-82cc-8878ef47efc1.png)
+![양자화비미분](https://user-images.githubusercontent.com/91093119/150964804-50529089-09e8-44aa-ab8a-71480e15f0e1.png)
 
 ```cpp
 //lo부터 hi까지의 분산(O(1))
