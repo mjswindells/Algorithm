@@ -65,7 +65,9 @@ void FindAns(){
 #
 # 삼각형 위의 최대경로 개수 세기
 - 메모리제이션의 이유? 
-- 내려가는 경로가 겹칠 수 밖에 없는데 추가적인 메모리를 낭비해야 하는가?
+- 내려가는 도중 중복이 발생하는 부분을 걸러줄 수 있다.
+- 처음에 countMax함수에서 ret을 캐시로 잡아서 하길래 굳이 저걸 해야하나? 싶었다
+- 생각해보니 중복방지를 위해서 설정을 해둔것.
 
 ```cpp
 int arr[100][100];
@@ -191,5 +193,78 @@ for (int i = 1; i <= n; ++i) {
 - ????? 그래프같은데 감이 안잡히네
 - 가중치가 주어진것도 아니라 다익스트라알고리즘도 아니다
 - 경험의 부족인것같다
-- 
+- 마르코프연쇄를 이용한 풀이
+- 시간적으로 더 오래걸리지만 이해하는데 있어서는 더 쉬웠다
+```cpp
+#define matrix vector<vector<double>> 
+
+// board를 확률로 나타내기 위한 check 
+int check[50];
+//마을의수, 지난일수, 교도소번호
+int n,d,p;
+
+//n을 행렬의 크기라 했을때 O(n^3)
+matrix operator*(const matrix &a, const matrix &b) {
+    matrix res(n, vector<double>(n));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                res[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return res;
+}
+//7장 행렬의 거듭제곱을 구하는 분할정복 알고리즘
+//M을 거듭제곱횟수라 했을 경우 O(logM)
+matrix power(matrix a, double r) {
+    matrix res(n, vector<double>(n));
+
+    for (int i = 0; i < n; i++)
+        res[i][i] = 1;
+    while (r > 0) {
+        if ((int)r % 2 == 1) {
+            res = res * a;
+        }
+        r /= 2;
+        a = a * a;
+    }
+    return res;
+}
+
+int main(){
+    int T,k;cin>>T;
+    while(T--){
+        memset(check,0,sizeof(check));
+        cin>>n>>d>>p;
+        matrix board(n, vector<double>(n));
+        
+        //check와 board 입력
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                cin>>k;
+                if(k==1) check[i]++;
+                board[i][j]=k;
+            }
+        }
+        //board의 1을 확률로 변환 ex) 0110 -> 0 0.5 0.5 0
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(board[i][j]==1){
+                    board[i][j]/=check[i];
+                }
+            }
+        }
+        //O(n^3M)
+        matrix answ=power(board,d);
+        int t,temp;cin>>t;
+        while(t--) {
+            cin>>temp;
+            cout<<answ[p][temp]<<" ";
+        }
+        
+    }
+}
+```
 #
