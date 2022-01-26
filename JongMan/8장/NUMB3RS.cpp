@@ -17,6 +17,8 @@ int check[50];
 int n,d,p;
 
 //n을 행렬의 크기라 했을때 O(n^3)
+//슈트라센알고리즘을 이용하면 시간을 더 줄일 수 있다.
+
 matrix operator*(const matrix &a, const matrix &b) {
     matrix res(n, vector<double>(n));
 
@@ -70,8 +72,21 @@ int main(){
                 }
             }
         }
-        //O(n^3M)
+        //O(n^3logM)
         matrix answ=power(board,d);
+
+        cout<<endl<<endl<<"board:"<<endl;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++) cout<<board[i][j]<<" ";
+            cout<<endl;
+        }
+        cout<<endl<<"ans:"<<endl;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++) cout<<answ[i][j]<<" ";
+            cout<<endl;
+        }
+        
+        cout<<endl<<endl;
         int t,temp;cin>>t;
         while(t--) {
             cin>>temp;
