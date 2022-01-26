@@ -7,7 +7,7 @@ using namespace std;
 //두니발박사의 탈옥
 //https://algospot.com/judge/problem/read/NUMB3RS
 //마르코프연쇄를 이용해 풀었다. 행렬의 크기:n 거듭제곱의 수 :m
-//O(n^3m)
+//O(n^3logm)
 
 #define matrix vector<vector<double>> 
 
