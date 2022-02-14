@@ -34,6 +34,7 @@ void generate3(int n,int m,string s){
         --skip;
         return;
     }
+    //skip이 (n+m)C(n)보다 크다면 skip은 (n+m)C(n)만큼 줄어있고 실행할 필요 없이 종료
     if(dp[n+m][n]<=skip){
         skip-=dp[n+m][n];
         return;
